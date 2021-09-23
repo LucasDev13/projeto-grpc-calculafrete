@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.project";
+option java_outer_classname = "Fretes";
+
+package br.com.project;
+
+service FretesService {
+  //service1
+  rpc cadastrar (FretesRequest) returns (FretesResponse) {}
+  //service2
+  rpc calculaFrete(CalculaFreteRequest) returns (CalculaFreteResponse);
+}
+
+message CalculaFreteRequest{
+  //campos que vão vir pela requisição
+  string cep = 1;
+}
+message CalculaFreteResponse{
+  //campos que serão retornar como resposta da requisição.
+  double valor = 1;
+  string cep = 2;
+}
+
+message FretesRequest {
+  string name = 1;
+}
+
+message FretesResponse {
+  string message = 1;
+}
